@@ -4,7 +4,7 @@
 
 # Прототип
 
-marvelapp.com/777cb9g
+https://marvelapp.com/777cb9g
 
 # Задачи на разработку
 
