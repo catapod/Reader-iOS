@@ -7,10 +7,10 @@
 //
 
 import Foundation
-
+import UIKit
 protocol IRouterService: class {
     
-    func showWelcome()
-    func showMain()
+    func showWelcome() -> UIViewController
+    func showMain() -> UIViewController
     
 }

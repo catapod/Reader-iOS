@@ -15,18 +15,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        checkFirstLaunch()
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        if let window = window {
+            window.backgroundColor = UIColor.white
+            window.rootViewController = checkFirstLaunch()
+            window.makeKeyAndVisible()
+        }
+        
         return true
     }
     
     
     //MARK: Router services
-    func checkFirstLaunch() {
+    func checkFirstLaunch() -> UIViewController {
         if WelcomeService.shared.isFirstTime() {
-            RouterService.shared.showWelcome()
+            return RouterService.shared.showWelcome()
         } else {
-            RouterService.shared.showMain()
+            return RouterService.shared.showMain()
         }
         
     }

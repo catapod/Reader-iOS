@@ -11,22 +11,26 @@ import RealmSwift
 
 
 class WelcomeViewController: UIViewController, WelcomeViewDelegate {
+    
     //MARK: Properties
     private let realm = try! Realm()
     private(set) var welcomeView: WelcomeView!
 
     //MARK: Lifecycle
+    override func loadView() {
+        welcomeView = WelcomeView()
+        view = welcomeView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        welcomeView = self.view as! WelcomeView
         welcomeView.delegate = self
         
     }
 
     //MARK: WelcomeViewDelegate
     func didTapButton(sender: AnyObject) {
-        print("asd")
         try! self.realm.write {
             
             let welcome = WelcomeModel()
@@ -36,7 +40,9 @@ class WelcomeViewController: UIViewController, WelcomeViewDelegate {
         }
         
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            appDelegate.checkFirstLaunch()
+            appDelegate.window?.rootViewController = appDelegate.checkFirstLaunch()
+            appDelegate.window?.makeKeyAndVisible()
+            
         }
     }
 

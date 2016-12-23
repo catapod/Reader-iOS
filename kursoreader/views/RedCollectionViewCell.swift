@@ -106,6 +106,7 @@ class RedCollectionViewCell: UICollectionViewCell {
         addSubview(title)
         addSubview(descr)
         addSubview(line)
+        
         configureTitle()
         configureDescr()
         configureLine()

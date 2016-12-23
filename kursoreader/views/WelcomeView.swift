@@ -56,7 +56,7 @@ class WelcomeView: UIView {
     let messageLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.white
-        label.text = "Мы рады, \nчто ты присоедtнился к нам"
+        label.text = "Мы рады, \nчто ты присоединился к нам"
         label.textAlignment = .center
         label.font = label.font.withSize(24)
         label.numberOfLines = 0
@@ -123,9 +123,8 @@ class WelcomeView: UIView {
     func configureMessageLabel() {
         messageLabel.snp.makeConstraints{ make in
             make.top.equalTo(welcomeLabel.snp.bottom).offset(8)
-            make.left.equalTo(self.snp.left)
-            make.right.equalTo(self.snp.right)
-            make.height.equalTo(60)
+            make.left.equalToSuperview().offset(8)
+            make.right.equalToSuperview().offset(8)
         }
     }
     
